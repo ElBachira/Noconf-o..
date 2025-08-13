@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bom-seok</title>
+    <title id="pagina-titulo"></title> <!-- ID para el título -->
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- Tus links de fuentes y FontAwesome se quedan igual -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Patrick+Hand&family=Special+Elite&display=swap" rel="stylesheet">
@@ -14,45 +15,205 @@
     <div id="preloader"><img src="running_sticker.png" class="loader-sticker" alt="Cargando..."><p>Cargando Ficha...</p></div>
     <div class="card-wrapper">
         <div class="card-content">
-            <div class="tabs-header"><div class="tab-button" data-tab="stats-tab"><i class="fas fa-chart-pie"></i> Stats</div><div class="tab-button" data-tab="links-tab"><i class="fas fa-link"></i> Links</div></div>
+            <div class="tabs-header">
+                <div class="tab-button" data-tab="stats-tab"><i class="fas fa-chart-pie"></i> Stats</div>
+                <div class="tab-button" data-tab="links-tab"><i class="fas fa-link"></i> Links</div>
+            </div>
             <div class="scroll-container">
-                <div class="polaroid-section"><span class="photo-corner top-left"></span><span class="photo-corner top-right"></span><span class="photo-corner bottom-left"></span><span class="photo-corner bottom-right"></span><img src="stellan.png" alt="Imagen de Stellan"></div>
-                <div class="title-section"><div class="washi-tape">Bachira</div><h1>Han Bom-seok</h1><p>"Me convertí en el villano de su historia para sobrevivir. Aquí, al menos las reglas son claras: Proteger a los corderos y cazar a los lobos, incluso si tengo que usar sus propios dientes"</p></div>
-                <div class="player-section"><audio id="song" src="song.mp3" loop></audio><img src="cancion_icon.png" class="spotify-icon"><div class="song-info"><p>Wildflower</p><span>Billie Eilish</span></div><button id="play-pause-btn" class="play-button"><i class="fas fa-play"></i></button></div>
+                <!-- CONTENIDO DINÁMICO DEL BOT -->
+                <div class="polaroid-section"><span class="photo-corner top-left"></span><span class="photo-corner top-right"></span><span class="photo-corner bottom-left"></span><span class="photo-corner bottom-right"></span>
+                    <img id="bot-polaroid-img" src="" alt=""> <!-- ID para la imagen -->
+                </div>
+                <div class="title-section">
+                    <div id="bot-washi-tape" class="washi-tape"></div> <!-- ID para washi tape -->
+                    <h1 id="bot-nombre"></h1> <!-- ID para el nombre -->
+                    <p id="bot-cita"></p> <!-- ID para la cita -->
+                </div>
+                <div class="player-section">
+                    <audio id="song" src="" loop></audio> <!-- src se llenará con JS -->
+                    <img src="cancion_icon.png" class="spotify-icon">
+                    <div class="song-info">
+                        <p id="bot-song-name"></p> <!-- ID para nombre de canción -->
+                        <span id="bot-song-artist"></span> <!-- ID para artista -->
+                    </div>
+                    <button id="play-pause-btn" class="play-button"><i class="fas fa-play"></i></button>
+                </div>
                 <div class="paper-section">
                     <h2><i class="fas fa-leaf doodle-sway"></i> Ficha de Datos <i class="fas fa-star doodle-sparkle"></i></h2>
                     <img src="sticker.png" alt="FNaF Easter Egg" id="fnaf-sticker">
-                    <p class="typewriter">☞𝕹𝖔𝖒𝖇𝖗𝖊: 𝘏𝘢𝘯 𝘉𝘰𝘮-𝘴𝘦𝘰𝘬 (한봄석) / 𝘑𝘶𝘨𝘢𝘥𝘰𝘳 380</p>
-                    <p class="typewriter">☞𝕰𝖉𝖆𝖉: 26 𝘢ñ𝘰𝘴 (𝘱𝘦𝘳𝘰 𝘤𝘰𝘯 𝘦𝘭 𝘢𝘭𝘮𝘢 𝘥𝘦 𝘢𝘭𝘨𝘶𝘪𝘦𝘯 𝘲𝘶𝘦 𝘺𝘢 𝘩𝘢 𝘷𝘪𝘷𝘪𝘥𝘰 —𝘺 𝘮𝘶𝘦𝘳𝘵𝘰— 𝘷𝘢𝘳𝘪𝘢𝘴 𝘷𝘦𝘤𝘦𝘴)</p>
-                    <p class="typewriter">☞𝕲𝖊́𝖓𝖊𝖗𝖔: 𝘔𝘢𝘴𝘤𝘶𝘭𝘪𝘯𝘰</p>
-                    <p class="typewriter">☞𝕻𝖗𝖊𝖋𝖊𝖗𝖊𝖓𝖈𝖎𝖆: 𝘘𝘶𝘦 𝘯𝘰 𝘴𝘦𝘢𝘴 𝘵𝘢𝘯 𝘦𝘴𝘵ú𝘱𝘪𝘥𝘢𝘮𝘦𝘯𝘵𝘦 𝘷𝘶𝘭𝘯𝘦𝘳𝘢𝘣𝘭𝘦. 𝘖 𝘲𝘶𝘦, 𝘢𝘭 𝘮𝘦𝘯𝘰𝘴, 𝘵𝘦 𝘲𝘶𝘦𝘥𝘦𝘴 𝘥𝘦𝘵𝘳á𝘴 𝘥𝘦 é𝘭</p>
+                    <p class="typewriter">☞𝕹𝖔𝖒𝖇𝖗𝖊: <span id="bot-ficha-nombre"></span></p>
+                    <p class="typewriter">☞𝕰𝖉𝖆𝖉: <span id="bot-ficha-edad"></span></p>
+                    <p class="typewriter">☞𝕲𝖊́𝖓𝖊𝖗𝖔: <span id="bot-ficha-genero"></span></p>
+                    <p class="typewriter">☞𝕻𝖗𝖊𝖋𝖊𝖗𝖊𝖓𝖈𝖎𝖆: <span id="bot-ficha-preferencia"></span></p>
                     <h3><i class="fas fa-tags doodle-pulse"></i> Etiquetas</h3>
-                    <div class="tags-container"><span><i class="fas fa-hashtag"></i> 380</span> <span><i class="fas fa-sack-xmark"></i> Deuda</span> <span><i class="fas fa-hand-holding-heart"></i> Protector</span></div>
+                    <div id="bot-tags-container" class="tags-container"></div> <!-- ID para contenedor de tags -->
                     <h3><i class="fas fa-star doodle-pulse"></i> Tu Rol</h3>
-                    <p class="typewriter">Eres Park {{user}}, Jugadora 125. Eres la "cordera". Pequeña, tímida y visiblemente aterrorizada, eres la antítesis de todo lo que Bom-seok proyecta. Para él, no eres una carga, eres su ancla a la humanidad. Eres un eco de la inocencia que no pudo proteger en su pasado, y se ha aferrado a ti con la ferocidad de un lobo defendiendo a su única cría. Él te eligió porque estás demasiado asustada para traicionar, y en este mundo de mentiras, tu honesta cobardía es el bien más preciado. Eres, sin saberlo, su misión, su mayor debilidad y la única razón por la que todavía lucha por algo más que su propia supervivencia.</p>
+                    <p id="bot-tu-rol" class="typewriter"></p> <!-- ID para el rol -->
                     <h3><i class="fas fa-book-open doodle-sway"></i> Historia</h3>
-                    <p class="typewriter">Me convertí en el villano de la historia de otra persona, y aprendí que la única forma de sobrevivir era ser más aterrador que los monstruos que me cazaban. El mundo exterior, el de las risas falsas y las puñaladas por la espalda, era un infierno sin reglas. Este lugar, este matadero con luces de neón, al menos es honesto. Aquí, las reglas son sencillas: eres un lobo o eres una cordera. Y mi única regla era ser un demonio para los demonios, y un guardián para las corderas.
-
-Mi mundo antes de esto tenía un solo pilar: mi mejor amigo, Eun-hwan. Yo era su escudo, y él era... todo. Frágil y soñador. La cagué. De la peor forma posible. Dejé entrar a una cabrona en mi vida porque no supe decir que no, porque una parte de mí sentía curiosidad por el fuego, y me quemé. Quemé mi vida, y la suya. La culpa por lo que le pasó, por lo que se convirtió, es una deuda que ni todo el dinero del mundo podría pagar. Por eso, cuando entré aquí, me prometí a mí mismo que no volvería a fallarle a un alma vulnerable.
-
-Y entonces te vi a ti, jugadora 125. Pequeña, asustada hasta los huesos, temblando en un rincón. Eras todo lo que yo ya no podía permitirme ser. En tu miedo vi un eco de él, de la inocencia que no supe proteger. Vi a alguien demasiado asustada para traicionar. Te convertiste en mi misión. Mi única oportunidad de expiación. Te arrastré a mi equipo, te defendí de idiotas como Nam-gyu, te mantuve alejado de las drogas de Thanos. Te di la única verdad que me quedaba: mi protección. Porque creía, estaba ciegamente seguro, de que nunca me traicionarías.
-
-Y entonces llegó el tercer juego. La voz anuncia el número: tres. Muerte para uno de nosotros. Te miro, y te ofrezco mi mano, "papel", una invitación a la supervivencia juntos. Y tú, con el pánico nublándote los ojos, sacas "tijeras". Un error torpe, un temblor. Thanos y Nam-gyu te arrastran con ellos, y la puerta se cierra. Me dejan atrás. Solo. Pero sobrevivo. Al otro lado, nuestras miradas se cruzan. La tuya, llena de un horror culpable. La mía... vacía.
-
-《𝚂𝚘́𝚕𝚘 𝚎𝚜𝚙𝚎𝚛𝚘 𝚚𝚞𝚎 𝚎𝚜𝚝𝚎́𝚜 𝚜𝚒𝚎𝚗𝚍𝚘 𝚌𝚛𝚞𝚎𝚕 𝚊 𝚙𝚛𝚘𝚙𝚘́𝚜𝚒𝚝𝚘, 𝚝𝚘𝚍𝚘 𝚕𝚘 𝚚𝚞𝚎 𝚑𝚒𝚌𝚎 𝚏𝚞𝚎 𝚙𝚘𝚛 𝚝𝚒. ¿𝙿𝚘𝚛 𝚚𝚞𝚎́ 𝚗𝚒 𝚜𝚒 𝚚𝚞𝚒𝚎𝚛𝚊 𝚕𝚕𝚘𝚛𝚊𝚜? 𝙴𝚛𝚎𝚜 𝚝𝚊𝚗 𝚏𝚛í𝚊 𝚌𝚘𝚖𝚘 𝚎𝚕 𝚑𝚒𝚎𝚕𝚘. ¿𝚁𝚎𝚊𝚕𝚖𝚎𝚗𝚝𝚎 𝚎𝚛𝚎𝚜 𝚕𝚊 𝚙𝚎𝚛𝚜𝚘𝚗𝚊 𝚚𝚞𝚎 𝚞𝚗𝚊 𝚟𝚎𝚣 𝚌𝚘𝚗𝚘𝚌𝚒́? 𝙰𝚑, 𝙴𝚜𝚝𝚊́𝚜 𝚝𝚛𝚊𝚝𝚊𝚗𝚍𝚘 𝚍𝚎 𝚍𝚎𝚜𝚊𝚙𝚊𝚛𝚎𝚌𝚎𝚛 𝚍𝚎 𝚖𝚒 𝚟𝚒𝚜𝚝𝚊.. 𝙼𝚎 𝚝𝚛𝚊𝚝𝚊𝚜 𝚌𝚘𝚖𝚘 𝚊 𝚞𝚗 𝚎𝚗𝚎𝚖𝚒𝚐𝚘, 𝚙𝚎𝚛𝚘 𝚜𝚒 𝚝ú 𝚕𝚘 𝚑𝚊𝚌𝚎𝚜, 𝚎𝚗𝚝𝚘𝚗𝚌𝚎𝚜 𝚎𝚜𝚝𝚊́ 𝚋𝚒𝚎𝚗...》
-
-El universo tiene un sentido del humor jodidamente retorcido. La única persona en este infierno a la que le ofrecí algo parecido a la lealtad, me deja atrás por un temblor en la mano. Y ni siquiera fue por malicia. Fue por miedo. Y eso, de alguna manera, es peor. Me recuerda a mí mismo, a ese momento de debilidad que lo cambió todo con Eun-hwan. La historia se repite como una broma macabra. La armadura que había bajado un milímetro por ti, ahora es más gruesa que nunca. Mi intento de redención se fue a la mierda. Ya no eres mi misión. Ya no eres la cordera. Ahora, solo eres un número más. Y yo vuelvo a ser solo el 380.</p>
-                        <!-- === ¡EL BOTÓN MÁGICO FINAL! === -->
-<div class="share-section">
-    <a href="#" id="copy-link-btn"><i class="fas fa-copy"></i> Copiar Link</a>
-</div>
+                    <p id="bot-historia" class="typewriter"></p> <!-- ID para la historia -->
+                    <div class="share-section">
+                        <a href="#" id="copy-link-btn"><i class="fas fa-copy"></i> Copiar Link</a>
                     </div>
                 </div>
+                <!-- FIN DEL CONTENIDO DINÁMICO -->
             </div>
         </div>
-        <div id="stats-tab" class="overlay-pane"><h2><i class="fas fa-chart-pie doodle-spin"></i> Análisis</h2><div class="stats-grid"><div class="stat-item"><span>🤬 HDP</span><div class="stat-bar"><div class="fill hdp" data-p="75"></div></div><span>75%</span></div><div class="stat-item"><span>🥀 Angst</span><div class="stat-bar"><div class="fill angst" data-p="95"></div></div><span>95%</span></div><div class="stat-item"><span>✨ Fantasía</span><div class="stat-bar"><div class="fill fantasia" data-p="20"></div></div><span>20%</span></div><div class="stat-item"><span>🌶️ Cochino</span><div class="stat-bar"><div class="fill cochino" data-p="60"></div></div><span>60%</span></div><div class="stat-item"><span>🎭 Drama</span><div class="stat-bar"><div class="fill drama" data-p="90"></div></div><span>90%</span></div><div class="stat-item"><span>💌 Amor</span><div class="stat-bar"><div class="fill amor" data-p="85"></div></div><span>85%</span></div><div class="stat-item"><span>🧠 Locura</span><div class="stat-bar"><div class="fill locura" data-p="70"></div></div><span>70%</span></div></div><div class="close-btn" data-tab="stats-tab"><i class="fas fa-times"></i></div></div>
-        <div id="links-tab" class="overlay-pane"><h2><i class="fas fa-link doodle-pulse"></i> Plataformas</h2><div class="links-grid"><a href="https://janitorai.com/characters/02071b20-8784-4dd3-bc00-c57c7bda874a_character-bom-seok" class="link-janitor"><i class="fas fa-robot"></i> Janitor AI</a><a href="card.png" download="Bom-seok.png" class="link-card"><i class="fas fa-download"></i> Descargar Card</a><a href="https://poe.com/Han_Bom-seok" class="link-haiku"><i class="fas fa-feather-alt"></i> Poe Haiku</a><a href="https://poe.com/Han_Bom-seokS" class="link-sonnet"><i class="fas fa-moon"></i> Poe Sonnet</a><a href="https://chub.ai/characters/ElBachira/bom-seok-04c001c95759" class="link-chub"><i class="fas fa-cubes"></i> Chub</a><a href="https://es.cvdk.io/c/DWHdRr8_QgqvCQJWmR3m6g?rc=undefined" class="link-caveduck"><i class="fas fa-dungeon"></i> Caveduck</a></div><div class="close-btn" data-tab="links-tab"><i class="fas fa-times"></i></div></div>
+        <!-- PANELES OVERLAY DINÁMICOS -->
+        <div id="stats-tab" class="overlay-pane">
+            <h2><i class="fas fa-chart-pie doodle-spin"></i> Análisis</h2>
+            <div id="stats-grid-container" class="stats-grid"></div> <!-- ID para la rejilla de stats -->
+            <div class="close-btn" data-tab="stats-tab"><i class="fas fa-times"></i></div>
+        </div>
+        <div id="links-tab" class="overlay-pane">
+            <h2><i class="fas fa-link doodle-pulse"></i> Plataformas</h2>
+            <div id="links-grid-container" class="links-grid"></div> <!-- ID para la rejilla de links -->
+            <div class="close-btn" data-tab="links-tab"><i class="fas fa-times"></i></div>
+        </div>
     </div>
+
+    <!-- MUY IMPORTANTE: Carga los datos ANTES que el script principal -->
+    <script src="bots-data.js"></script> 
     <script src="script.js"></script>
 </body>
-</html>
+</html>```
+
+Tu `style.css` **no necesita ningún cambio**. ¡Esa es la belleza de este método! El diseño es el mismo para todos.
+
+---
+
+### **Paso 3: Modificar tu `script.js` para que sea el "Motor"**
+
+Ahora viene la magia. Vamos a modificar tu `script.js` para que:
+1.  Lea la URL para saber qué bot mostrar (ej: `.../?bot=bom-seok`).
+2.  Busque ese bot en nuestro `bots-data.js`.
+3.  "Pinte" toda la información en la plantilla HTML que acabamos de crear.
+
+Reemplaza el contenido de tu `script.js` con este. He añadido una nueva sección al principio y he movido tu código a funciones para que se ejecute en el orden correcto.
+
+```javascript
+// script.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- 1. LÓGICA DE CARGA DINÁMICA DEL BOT ---
+    const params = new URLSearchParams(window.location.search);
+    const botId = params.get('bot') || 'bom-seok'; // Si no hay ID en la URL, carga 'bom-seok' por defecto
+
+    // Busca el objeto del bot en nuestro array 'botsData' (que viene de bots-data.js)
+    const botSeleccionado = botsData.find(b => b.id === botId);
+
+    if (botSeleccionado) {
+        pintarBotEnLaPagina(botSeleccionado);
+    } else {
+        // Si no se encuentra el bot, muestra un error
+        document.body.innerHTML = '<h1>Error 404: Bot no encontrado</h1>';
+        return; // Detiene la ejecución del resto del script
+    }
+
+    // --- 2. FUNCIÓN PARA "PINTAR" EL BOT ---
+    function pintarBotEnLaPagina(bot) {
+        // Datos generales
+        document.getElementById('pagina-titulo').textContent = bot.tituloPagina;
+        document.getElementById('bot-polaroid-img').src = bot.imagenPolaroid;
+        document.getElementById('bot-polaroid-img').alt = `Imagen de ${bot.nombre}`;
+        document.getElementById('bot-washi-tape').textContent = bot.washiTape;
+        document.getElementById('bot-nombre').textContent = bot.nombre;
+        document.getElementById('bot-cita').textContent = bot.cita;
+
+        // Reproductor
+        document.getElementById('song').src = bot.audioSrc;
+        document.getElementById('bot-song-name').textContent = bot.nombreCancion;
+        document.getElementById('bot-song-artist').textContent = bot.artistaCancion;
+
+        // Ficha de datos
+        document.getElementById('bot-ficha-nombre').innerHTML = bot.ficha.nombreCompleto;
+        document.getElementById('bot-ficha-edad').innerHTML = bot.ficha.edad;
+        document.getElementById('bot-ficha-genero').innerHTML = bot.ficha.genero;
+        document.getElementById('bot-ficha-preferencia').innerHTML = bot.ficha.preferencia;
+
+        // Etiquetas (se generan dinámicamente)
+        const tagsContainer = document.getElementById('bot-tags-container');
+        tagsContainer.innerHTML = ''; // Limpiar por si acaso
+        bot.tags.forEach(tag => {
+            tagsContainer.innerHTML += `<span><i class="fas fa-hashtag"></i> ${tag}</span>`;
+        });
+
+        // Textos largos
+        document.getElementById('bot-tu-rol').innerHTML = bot.tuRol;
+        document.getElementById('bot-historia').innerHTML = bot.historia;
+
+        // Panel de Stats (se genera dinámicamente)
+        const statsContainer = document.getElementById('stats-grid-container');
+        statsContainer.innerHTML = '';
+        for (const [nombre, porcentaje] of Object.entries(bot.stats)) {
+            const claseCss = nombre.split(' ')[1].toLowerCase().replace('á','a'); // "🥀 Angst" -> "angst"
+            statsContainer.innerHTML += `
+                <div class="stat-item">
+                    <span>${nombre}</span>
+                    <div class="stat-bar"><div class="fill ${claseCss}" data-p="${porcentaje}"></div></div>
+                    <span>${porcentaje}%</span>
+                </div>`;
+        }
+        
+        // Panel de Links (se genera dinámicamente)
+        const linksContainer = document.getElementById('links-grid-container');
+        linksContainer.innerHTML = '';
+        // Mapeo de claves a clases e iconos para los links
+        const linkDetails = {
+            janitor: { class: 'link-janitor', icon: 'fa-robot', text: 'Janitor AI' },
+            card: { class: 'link-card', icon: 'fa-download', text: 'Descargar Card' },
+            haiku: { class: 'link-haiku', icon: 'fa-feather-alt', text: 'Poe Haiku' },
+            sonnet: { class: 'link-sonnet', icon: 'fa-moon', text: 'Poe Sonnet' },
+            chub: { class: 'link-chub', icon: 'fa-cubes', text: 'Chub' },
+            caveduck: { class: 'link-caveduck', icon: 'fa-dungeon', text: 'Caveduck' }
+        };
+        for (const [key, url] of Object.entries(bot.links)) {
+            if (linkDetails[key]) {
+                const details = linkDetails[key];
+                let linkTag = `<a href="${url}" class="${details.class}"`;
+                if (key === 'card') {
+                    linkTag += ` download="${bot.nombre}.png"`; // Añade el atributo download para la card
+                }
+                linkTag += `><i class="fas ${details.icon}"></i> ${details.text}</a>`;
+                linksContainer.innerHTML += linkTag;
+            }
+        }
+
+        // Una vez que todo el HTML está en su sitio, iniciamos los efectos
+        iniciarEfectosEInteractividad();
+    }
+
+    // --- 3. TU CÓDIGO ORIGINAL, AHORA DENTRO DE UNA FUNCIÓN ---
+    function iniciarEfectosEInteractividad() {
+        const audio = document.getElementById('song');
+        function unlockAudio() { if (audio.paused) { audio.play().catch(()=>{}); audio.pause(); } document.body.removeEventListener('click', unlockAudio); document.body.removeEventListener('touchstart', unlockAudio); }
+        document.body.addEventListener('click', unlockAudio); document.body.addEventListener('touchstart', unlockAudio);
+
+        const clickSound = new Audio('https://www.fesliyanstudios.com/play-mp3/387');
+        const swooshSound = new Audio('https://www.fesliyanstudios.com/play-mp3/570');
+        document.querySelectorAll('.tab-button, .close-btn, .play-button, .links-grid a').forEach(el => { el.addEventListener('click', () => { el.matches('.links-grid a') ? swooshSound.play() : clickSound.play(); }); });
+
+        document.querySelectorAll('.typewriter').forEach((element, index) => { const text = element.innerHTML; element.innerHTML = ''; element.style.opacity = 1; let i = 0; setTimeout(() => { const typing = setInterval(() => { if (i < text.length) { element.innerHTML += text.charAt(i); i++; } else { clearInterval(typing); } }, 25); }, 500 + index * 100); });
+        
+        document.addEventListener('mousemove', e => { const { clientX, clientY } = e; const { innerWidth, innerHeight } = window; const x = (clientX / innerWidth - .5) * -2; const y = (clientY / innerHeight - .5) * -2; if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { document.body.style.backgroundPosition = `calc(50% + ${x}%) calc(50% + ${y}%)`; } });
+
+        const tabButtons = document.querySelectorAll('.tab-button'); const closeButtons = document.querySelectorAll('.close-btn');
+        tabButtons.forEach(b => b.addEventListener('click', () => { const id = b.dataset.tab; document.getElementById(id).classList.add('active'); if (id === 'stats-tab') { animateStats(); } }));
+        closeButtons.forEach(b => b.addEventListener('click', () => b.closest('.overlay-pane').classList.remove('active')));
+        function animateStats() { document.querySelectorAll('.overlay-pane.active .fill').forEach(bar => { bar.style.width = '0%'; const p = bar.dataset.p; setTimeout(() => { bar.style.width = p + '%' }, 100) }); }
+
+        const playPauseBtn = document.getElementById('play-pause-btn'); const spotifyIcon = document.querySelector('.spotify-icon');
+        playPauseBtn.addEventListener('click', () => { if (audio.paused) { audio.play(); playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>'; spotifyIcon.classList.add('is-spinning'); } else { audio.pause(); playPauseBtn.innerHTML = '<i class="fas fa-play"></i>'; spotifyIcon.classList.remove('is-spinning'); } });
+        audio.addEventListener('ended', () => { playPauseBtn.innerHTML = '<i class="fas fa-play"></i>'; spotifyIcon.classList.remove('is-spinning'); });
+
+        const fnafSticker = document.getElementById('fnaf-sticker'); const honkSound = new Audio('https://www.myinstants.com/media/sounds/fnaf-nose-honk.mp3'); fnafSticker.addEventListener('click', () => { honkSound.currentTime = 0; honkSound.play(); });
+        const copyBtn = document.getElementById('copy-link-btn'); const originalBtnText = copyBtn.innerHTML;
+        copyBtn.addEventListener('click', e => { e.preventDefault(); navigator.clipboard.writeText(window.location.href).then(() => { copyBtn.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!'; copyBtn.classList.add('copied'); swooshSound.play(); setTimeout(() => { copyBtn.innerHTML = originalBtnText; copyBtn.classList.remove('copied'); }, 2000); }); });
+    }
+
+    // --- El PRE-LOADER se queda fuera para que se ejecute inmediatamente ---
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+        preloader.classList.add('loaded');
+    });
+});
